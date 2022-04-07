@@ -4,6 +4,8 @@ import fr.skiwark.testmod.util.IModelLoader;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityCreature;
+import net.minecraft.entity.boss.EntityDragon;
+import net.minecraft.entity.boss.EntityWither;
 import net.minecraft.entity.monster.EntityPolarBear;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
@@ -25,10 +27,12 @@ public class ItemWand extends Item implements IModelLoader {
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
 
         if(!worldIn.isRemote) {
-            EntityPolarBear Polar = new EntityPolarBear(worldIn);
+            EntityWither boris = new EntityWither(worldIn);
             playerIn.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY,5*20));
-            Polar.setPosition(playerIn.posX,playerIn.posY,playerIn.posZ);
-            worldIn.spawnEntity(Polar);
+            boris.setPosition(playerIn.posX,playerIn.posY,playerIn.posZ);
+            worldIn.setWorldTime(6000);
+            worldIn.spawnEntity(boris);
+
 
 
         }
@@ -45,6 +49,8 @@ public class ItemWand extends Item implements IModelLoader {
     {
         //entity.setDead();
         entity.onKillCommand();
+
+
 
         return super.onLeftClickEntity(stack, player, entity);
     }
