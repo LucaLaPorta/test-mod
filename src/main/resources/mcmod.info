@@ -1,0 +1,16 @@
+[
+    {
+      "modid": "testmod",
+      "name": "Test Mod",
+      "description": "Example placeholder mod.",
+      "version": "${version}",
+      "mcversion": "${mcversion}",
+      "url": "",
+      "updateUrl": "",
+      "authorList": ["Skiwark"],
+      "credits": "",
+      "logoFile": "",
+      "screenshots": [],
+      "dependencies": []
+    }
+]
