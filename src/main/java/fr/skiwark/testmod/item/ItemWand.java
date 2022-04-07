@@ -30,6 +30,7 @@ public class ItemWand extends Item implements IModelLoader {
             Polar.setPosition(playerIn.posX,playerIn.posY,playerIn.posZ);
             worldIn.spawnEntity(Polar);
 
+
         }
         return super.onItemRightClick(worldIn, playerIn, handIn);
     }
@@ -39,4 +40,12 @@ public class ItemWand extends Item implements IModelLoader {
         registerModel(this, 0);
     }
 
+    @Override
+    public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity)
+    {
+        //entity.setDead();
+        entity.onKillCommand();
+
+        return super.onLeftClickEntity(stack, player, entity);
+    }
 }
